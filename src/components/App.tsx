@@ -1,21 +1,26 @@
 /*eslint no-debugger: "off"*/
 import React, { useEffect } from 'react';
-import 'bulma/css/bulma.min.css';
 import useUniversities from '../hooks/useUniversities';
 import Universities from './Universities';
+// import universities from '../json/universities.json';
+
+import 'bulma/css/bulma.min.css';
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+import '@fortawesome/fontawesome-free/css/solid.min.css';
 
 const App: React.FC = () => {
   const [universities, search] = useUniversities();
 
   useEffect(() => {
-    debugger;
     search();
   }, [search]);
 
   return (
-    <div className="container">
-      <Universities universities={universities} />
-    </div>
+    <section className="section">
+      <div className="container">
+        <Universities universities={universities} />
+      </div>
+    </section>
   );
 };
 

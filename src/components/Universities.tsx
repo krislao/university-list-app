@@ -8,12 +8,16 @@ type Props = {
 };
 
 const Universities: React.FC<Props> = ({ universities }: Props) => {
-  const renderedList = universities.map((university: UniversityType) => {
-    const key = toKebabCase(`${university.alpha_two_code} ${university.name}`);
-    return <University key={key} university={university} />;
+  const renderedList = universities.map((university: UniversityType, index) => {
+    const key = toKebabCase(`${index} ${university.name}`);
+    return (
+      <div key={key} className="column is-one-quarter">
+        <University key={key} university={university} />
+      </div>
+    );
   });
 
-  return <div>{renderedList}</div>;
+  return <div className="columns is-flex-wrap-wrap">{renderedList}</div>;
 };
 
 export default Universities;

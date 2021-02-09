@@ -1,0 +1,12 @@
+.container {
+  height: 100%;
+}
+
+.countryFlag {
+  margin-left: auto;
+}
+
+.content .webPages {
+  list-style: none;
+  margin-left: 0;
+}
