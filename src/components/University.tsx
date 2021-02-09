@@ -13,8 +13,8 @@ type Props = {
   university: UniversityType;
 };
 
-const University: React.FC<Props> = ({ university }: Props) => {
+const UniversityType: React.FC<Props> = ({ university }: Props) => {
   return <div>{university.name}</div>;
 };
 
-export default University;
+export default UniversityType;
