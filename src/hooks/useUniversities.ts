@@ -7,8 +7,11 @@ const useUniversities = (): [Array<UniversityType>, (term?: string) => Promise<v
   const [universities, setUniversities] = useState<Array<UniversityType>>([]);
 
   const search = async (term?: string) => {
-    const { data: universities } = await hipoLabs.get('/search');
-    debugger;
+    const { data: universities } = await hipoLabs.get('/search', {
+      params: {
+        name: term,
+      },
+    });
     setUniversities(universities as Array<UniversityType>);
   };
   return [universities, useCallback(search, [])];
