@@ -2,17 +2,18 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 
 type Props = {
+  disabled: boolean;
   onSearch: (term?: string) => Promise<void>;
 };
 
-const SearchBar: React.FC<Props> = ({ onSearch }: Props) => {
+const SearchBar: React.FC<Props> = ({ onSearch, disabled }: Props) => {
   const [term, setTerm] = useState('');
   const [debouncedTerm, setDebouncedTerm] = useState(term);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setDebouncedTerm(term);
-    }, 500);
+    }, 700);
 
     return () => {
       clearTimeout(timeoutId);
@@ -45,28 +46,11 @@ const SearchBar: React.FC<Props> = ({ onSearch }: Props) => {
               placeholder="University name"
               value={term}
               onChange={onInputChange}
+              disabled={disabled}
             />
           </div>
         </div>
       </div>
-      {/* <div className="field is-horizontal">
-        <div className="field-label is-normal">
-          <label className="label">Search by country:</label>
-        </div>
-        <div className="field-body">
-          <div className={`field is-flex-grow-0 ${styles.field}`}>
-            <div className="control">
-              <div className="select is-fullwidth">
-                <select>
-                  <option>United States</option>
-                  <option>India</option>
-                  <option>Canada</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </form>
   );
 };
