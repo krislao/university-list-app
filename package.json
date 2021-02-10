@@ -1,5 +1,6 @@
 {
-  "name": "xendit-university-list-app",
+  "name": "university-list-app",
+  "author": "Marion Kristoffer Lao",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
